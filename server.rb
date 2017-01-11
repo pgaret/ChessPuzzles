@@ -14,15 +14,13 @@ class Puzzle
   field :past_moves_board, type: Array
 end
 
-
-
 get '/' do
   'Welcome to chess puzzles'
 end
 
 get '/seed' do
   puzzle = JSON.parse(File.read('./sample_board.json'))
-  Puzzle.create(ind: Puzzle.all.count+1, game_board: puzzle["game_board"], past_moves_board: puzzle["past_moves_board"])
+  Puzzle.create(ind: Puzzle.all.count, game_board: puzzle["game_board"], past_moves_board: puzzle["past_moves_board"])
 end
 
 namespace '/api/v1' do
@@ -34,7 +32,7 @@ namespace '/api/v1' do
   end
 
   get '/puzzles' do
-    Puzzle.all.to_json
+    Puzzle.only(:ind, 'game_board.Puzzle_No', 'game_board.Rating', 'game_board.Played_times').all.to_json
   end
 
   get '/puzzles/:id' do
