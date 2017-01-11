@@ -29,6 +29,8 @@ namespace '/api/v1' do
 
   before do
     content_type 'application/json'
+    headers 'Access-Control-Allow-Origin' => '*',
+              'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']
   end
 
   get '/puzzles' do
