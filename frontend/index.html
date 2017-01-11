@@ -4,13 +4,21 @@
     <meta charset="utf-8">
     <title>Chess Puzzles</title>
     <link rel="stylesheet" type="text/css" href="./css/skeleton.css"></link>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"></link>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="./js/app.js"></script>
+    <script src="./js/Simulation.js"></script>
   </head>
   <body>
     <h1 style="text-align: center;">Chess Puzzles</h1>
-    
-    <button onClick="getPuzzle()">Get Puzzle</button>
-    <p id="puzzle"></p>
+    <div id="menu">
+      <h4>Puzzle ID | Rating | Played Times</h4>
+    </div>
+    <div id="simulator">
+      <button>Play</button>
+      <button>Stop</button>
+      <button>Fast</button>
+      <br>
+    </div>
   </body>
 </html>
