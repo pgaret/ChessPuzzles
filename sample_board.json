@@ -1,0 +1,70 @@
+{
+    "game_board": {
+        "Puzzle_No": 48073,
+        "Rating": 2080,
+        "Played_times": 15507,
+        "rows": 8,
+        "cols": 8,
+        "board": {
+            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeeeeeee/eeeepeQe/eeeeeeee/PPPPePPP/RNBeKBNR",
+            "last_move_squares": {
+                "from": {
+                    "row": 7,
+                    "col": 3
+                },
+                "to": {
+                    "row": 4,
+                    "col": 6
+                }
+            },
+            "special_square": {
+                "row": 7,
+                "col": 3
+            }
+        }
+    },
+    "past_moves_board": [
+        {
+            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeeeeeee/eeeepeee/eeeeeeee/PPPPePPP/RNBQKBNR",
+            "last_move_squares": {
+                "from": {
+                    "row": 3,
+                    "col": 3
+                },
+                "to": {
+                    "row": 4,
+                    "col": 4
+                }
+            }
+        },
+        {
+            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeepeeee/eeeePeee/eeeeeeee/PPPPePPP/RNBQKBNR",
+            "last_move_squares": {
+                "from": {
+                    "row": 6,
+                    "col": 4
+                },
+                "to": {
+                    "row": 4,
+                    "col": 4
+                }
+            }
+        },
+        {
+            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeepeeee/eeeeeeee/eeeeeeee/PPPPPPPP/RNBQKBNR",
+            "last_move_squares": {
+                "from": {
+                    "row": 1,
+                    "col": 3
+                },
+                "to": {
+                    "row": 3,
+                    "col": 3
+                }
+            }
+        },
+        {
+            "pieces": "rnbqkbnr/pppppppp/eeeeeeee/eeeeeeee/eeeeeeee/eeeeeeee/PPPPPPPP/RNBQKBNR"
+        }
+    ]
+}
