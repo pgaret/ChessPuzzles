@@ -1,3 +1,5 @@
+var simulator
+
 $(document).ready(function(){
   $.ajax({
     dataType: 'json',
@@ -20,9 +22,13 @@ function simulate(id){
     url: 'http://chess-puzzles.herokuapp.com/api/v1/puzzles/'+id,
     success: function(results){
       $("#menu").css("display", "none")
-      $("#simulator").css("display", "block")
+      $("#simulator_container").css("display", "block")
       $("#puzzle").html(results)
-        new Simulation(results[0])
+        simulator = new Simulation(results[0])
       }
   })
+}
+
+function runSim(){
+  simulator.runSim()
 }

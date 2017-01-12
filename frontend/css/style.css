@@ -7,9 +7,16 @@
   text-align: center;
 }
 
-#simulator{
+#simulator_container{
   text-align: center;
   display: none;
+}
+
+#piece{
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
 }
 
 .spot{
@@ -19,10 +26,17 @@
 }
 
 .black{
-  background-color: black;
+  background-color: brown;
   color: white;
+  border: solid medium brown;
 }
 
 .white{
   background-color: lightgrey;
+  border: solid medium lightgrey;
+
+}
+
+.special{
+  border: solid medium red;
 }
