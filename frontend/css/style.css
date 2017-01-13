@@ -12,6 +12,37 @@
   display: none;
 }
 
+#fastback{
+  background-image: url('./FastBackward.png');
+  background-size: 100% 100%;
+}
+
+#slowback{
+  background-image: url('./PlayBack.png');
+  background-size: 100% 100%;
+}
+
+#play{
+  background-image: url('./Play.png');
+  background-size: 100% 100%;
+}
+
+#pause{
+  background-image: url('./Pause.png');
+  background-size: 100% 100%;
+  display: none;
+}
+
+#slowforward{
+  background-image: url('./Play.png');
+  background-size: 100% 100%;
+}
+
+#fastforward{
+  background-image: url('./FastForward.png');
+  background-size: 100% 100%;
+}
+
 #piece{
   text-align: center;
   width: 50px;

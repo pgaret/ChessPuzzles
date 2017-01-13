@@ -15,9 +15,11 @@
       <h4>Puzzle ID | Rating | Played Times</h4>
     </div>
     <div id="simulator_container">
-      <button onClick="runSim()">Play</button>
-      <button onClick="pauseSim()">Stop</button>
-      <button onClick="speedSim()">Fast</button>
+      <button id="fastback" onClick="changeSimOptions(250, -1)"></button>
+      <button id="slowback" onClick="changeSimOptions(500, -1)"></button>
+      <button id="play" onClick="changeSimOptions(500, 1)"></button>
+      <button id="pause" onClick="pauseSim()"></button>
+      <button id="fastforward" onClick="changeSimOptions(250, 1)"></button>
       <div id="simulator">
         <br>
       </div>
