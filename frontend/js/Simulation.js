@@ -1,16 +1,17 @@
 class Simulation{
 
   constructor(simulation){
-    this.game_board = simulation["game_board"]
-    this.past_moves_board = simulation["past_moves_board"]
-    this.board_size = [this.game_board["rows"], this.game_board["cols"]]
-    this.current = this.past_moves_board.length-2
+    debugger
+    this.moves = simulation["past_moves_board"]
+    this.board_size = [simulation["game_board"]["rows"], simulation["game_board"]["cols"]]
+    this.starting_board = simulation["game_board"]["pieces"]
+    this.current = 0
     this.delay = 500
     this.direction = 1
     this.runningSim = false
     this.takenPieces=[]
     this.paused = false
-    this.setBoard(this.game_board["rows"], this.game_board["cols"], this.past_moves_board[this.past_moves_board.length-1]["pieces"], this.past_moves_board[0]["special_square"])
+    // this.setBoard(this.board_size[0], this.board_size[1], this.starting_board)
   }
 
   runSim(){
@@ -18,22 +19,16 @@ class Simulation{
     setTimeout(function render(){
       // debugger
       if (!simulator.paused){
-        if ((simulator.direction > 0 && simulator.current > -2 && simulator.current+1 < simulator.past_moves_board.length) || (simulator.direction < 0 && simulator.current > -2 && simulator.current+1 < simulator.past_moves_board.length)){
-          let fromSpace; let toSpace
-          if (simulator.current >= 0) {
-            fromSpace = [simulator.past_moves_board[simulator.current]["last_move_squares"]["from"]["row"], simulator.past_moves_board[simulator.current]["last_move_squares"]["from"]["col"]]
-            toSpace = [simulator.past_moves_board[simulator.current]["last_move_squares"]["to"]["row"], simulator.past_moves_board[simulator.current]["last_move_squares"]["to"]["col"]]
-          } else {
-            fromSpace = [simulator.game_board["board"]["last_move_squares"]["from"]["row"], simulator.game_board["board"]["last_move_squares"]["from"]["col"]]
-            toSpace = [simulator.game_board["board"]["last_move_squares"]["to"]["row"], simulator.game_board["board"]["last_move_squares"]["to"]["col"]]
-          }
+        if (simulator.current > -1 && simulator.current < simulator.moves.length){
+        // if ((simulator.direction === 1 && simulator.current >0 && simulator.current < simulator.moves.length) || (simulator.direction < 0 && simulator.current > -2 && simulator.current+1 < simulator.moves.length)){
+          let fromSpace = [simulator.moves[simulator.current]["board"]["last_move_squares"]["from"]["row"], simulator.moves[simulator.current]["board"]["last_move_squares"]["from"]["col"]]
+          let toSpace = [simulator.moves[simulator.current]["board"]["last_move_squares"]["to"]["row"], simulator.moves[simulator.current]["board"]["last_move_squares"]["to"]["col"]]
           simulator.changeBoard(fromSpace, toSpace)
           this.runningSim = false
           setTimeout(render, simulator.delay)
-          simulator.current -= simulator.direction
+          simulator.current += simulator.direction
         }
         else {
-          if (simulator.current === -2) {simulator.current += 1}
           simulator.runningSim = false
           $("#play").css("display", "inline-block")
           $("#pause").css("display", "none")

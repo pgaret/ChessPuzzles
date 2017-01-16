@@ -32,7 +32,7 @@ namespace '/api/v1' do
   end
 
   get '/puzzles' do
-    Puzzle.only(:ind, 'game_board.Puzzle_No', 'game_board.Rating', 'game_board.Played_times').all.to_json
+    Puzzle.only(:ind, 'Puzzle_No', 'Rating', 'Played_times').all.to_json
   end
 
   get '/puzzles/:id' do
