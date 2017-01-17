@@ -10,7 +10,11 @@ class Puzzle
   include Mongoid::Document
 
   field :ind, type: Integer
-  field :game_board, type: Hash
+  field :Played_times, type: Integer
+  field :Puzzle_No, type: Integer
+  field :cols, type: Integer
+  field :rows, type: Integer
+  field :pieces, type: String
   field :past_moves_board, type: Array
 end
 
