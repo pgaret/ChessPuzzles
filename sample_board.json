@@ -1,39 +1,21 @@
 {
-    "game_board": {
-        "Puzzle_No": 48073,
-        "Rating": 2080,
-        "Played_times": 15507,
-        "rows": 8,
-        "cols": 8,
-        "board": {
-            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeeeeeee/eeeepeQe/eeeeeeee/PPPPePPP/RNBeKBNR",
-            "last_move_squares": {
-                "from": {
-                    "row": 7,
-                    "col": 3
-                },
-                "to": {
-                    "row": 4,
-                    "col": 6
-                }
-            },
-            "special_square": {
-                "row": 7,
-                "col": 3
-            }
-        }
-    },
+    "puzzle_no": 1234,
+    "rating": 567,
+    "played_times": 89,
+    "rows": 8,
+    "cols": 8,
+    "pieces": "rnbqkbnr/pppppppp/eeeeeeee/eeeeeeee/eeeeeeee/eeeeeeee/PPPPPPPP/RNBQKBNR",
     "past_moves_board": [
         {
-            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeeeeeee/eeeepeee/eeeeeeee/PPPPePPP/RNBQKBNR",
+            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeepeeee/eeeeeeee/eeeeeeee/PPPPPPPP/RNBQKBNR",
             "last_move_squares": {
                 "from": {
-                    "row": 3,
+                    "row": 1,
                     "col": 3
                 },
                 "to": {
-                    "row": 4,
-                    "col": 4
+                    "row": 3,
+                    "col": 3
                 }
             }
         },
@@ -51,20 +33,34 @@
             }
         },
         {
-            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeepeeee/eeeeeeee/eeeeeeee/PPPPPPPP/RNBQKBNR",
+            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeeeeeee/eeeepeee/eeeeeeee/PPPPePPP/RNBQKBNR",
             "last_move_squares": {
                 "from": {
-                    "row": 1,
+                    "row": 3,
                     "col": 3
                 },
                 "to": {
-                    "row": 3,
-                    "col": 3
+                    "row": 4,
+                    "col": 4
                 }
             }
         },
         {
-            "pieces": "rnbqkbnr/pppppppp/eeeeeeee/eeeeeeee/eeeeeeee/eeeeeeee/PPPPPPPP/RNBQKBNR"
+            "pieces": "rnbqkbnr/pppepppp/eeeeeeee/eeeeeeee/eeeepeQe/eeeeeeee/PPPPePPP/RNBeKBNR",
+            "last_move_squares": {
+                "from": {
+                    "row": 7,
+                    "col": 3
+                },
+                "to": {
+                    "row": 4,
+                    "col": 6
+                }
+            },
+            "special_square": {
+                "row": 7,
+                "col": 3
+            }
         }
     ]
 }

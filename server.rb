@@ -9,22 +9,17 @@ Mongoid.load! 'mongoid.config'
 class Puzzle
   include Mongoid::Document
 
-  field :ind, type: Integer
-  field :Played_times, type: Integer
-  field :Puzzle_No, type: Integer
+  field :puzzle_no, type: Integer
+  field :played_times, type: Integer
+  field :rating, type: Integer
+  field :pieces, type: String
   field :cols, type: Integer
   field :rows, type: Integer
-  field :pieces, type: String
   field :past_moves_board, type: Array
 end
 
 get '/' do
   'Welcome to chess puzzles'
-end
-
-get '/seed' do
-  puzzle = JSON.parse(File.read('./sample_board.json'))
-  Puzzle.create(ind: Puzzle.all.count, game_board: puzzle["game_board"], past_moves_board: puzzle["past_moves_board"])
 end
 
 namespace '/api/v1' do
@@ -36,11 +31,19 @@ namespace '/api/v1' do
   end
 
   get '/puzzles' do
-    Puzzle.only(:ind, 'Puzzle_No', 'Rating', 'Played_times').all.to_json
+    puzzle = JSON.parse(File.read('./sample_board.json'))
+    Puzzle.find_or_create_by(played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"])
+    Puzzle.only('puzzle_no', 'rating', 'played_times').all.to_json
   end
 
   get '/puzzles/:id' do
-    Puzzle.where({ind: params[:id]}).to_json
+    Puzzle.where({_id: params[:id]}).to_json
+  end
+
+  post '/puzzles' do
+    puzzle = JSON.parse(params["data"])
+    Puzzle.find_or_create_by(played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"])
+    redirect to('https://pgaret.github.io/ChessPuzzleSim/')
   end
 
 end
