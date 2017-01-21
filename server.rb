@@ -18,6 +18,17 @@ class Puzzle
   field :past_moves_board, type: Array
 end
 
+def loadFiles
+  Dir.foreach('./boards') do |board|
+    next if board == '.' or board == '..'
+    puzzle = JSON.parse(File.read("./boards/"+board))
+    puts puzzle
+    if Puzzle.where(played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"]).count === 0 then
+      Puzzle.create(puzzle)
+    end
+  end
+end
+
 get '/' do
   'Welcome to chess puzzles'
 end
@@ -31,8 +42,7 @@ namespace '/api/v1' do
   end
 
   get '/puzzles' do
-    puzzle = JSON.parse(File.read('./sample_board.json'))
-    Puzzle.find_or_create_by(played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"])
+    loadFiles
     Puzzle.only('puzzle_no', 'rating', 'played_times').all.to_json
   end
 
@@ -41,9 +51,11 @@ namespace '/api/v1' do
   end
 
   post '/puzzles' do
+    loadFiles
     puzzle = JSON.parse(params["data"])
-    Puzzle.find_or_create_by(played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"])
-    redirect to('https://pgaret.github.io/ChessPuzzleSim/')
+    if Puzzle.where(played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"]).count === 0 then
+      Puzzle.create(puzzle)
+    end
   end
 
 end

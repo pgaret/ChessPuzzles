@@ -12205,18 +12205,5 @@
 				"col": 10
 			}
 		}
-	}],
-	"board": {
-		"pieces": "qeReqReeeReRRqeeeReq/eRRReRqeeeeRRRRqeRee/RqRqeReRRqReqeReeRqe/eeReqeqReqeeqeeeReeq/eeeqReeRqeqeeeqReqqe/ReeqqRqReReeReeeeeqe/eeeqeRqqeRqRqqeeeeRe/qReqeeqeeqqeqeqeeqqe/eeqqeqeeeqqqRqeRReeR/qeeReReqeeeeqeeeeeqR/qRqeqqeeeeeRqqqqRRee/eReeeeeeRqeqeReeReRR/eqeqeeeqRReeeeeReeqe/RRqeeeqReeReqeRqeeeq/eqeeeReReReqeReqReRe/eRqReReqqeeReqeqeeqe/qRRRqRReeqeeeRqReqeq/eRReeReqqeRRqeRqeeee/qeeRReRqqqRRqReRRqee/eReqReeReReeeqqReqee",
-		"last_move_squares": {
-			"from": {
-				"row": 16,
-				"col": 11
-			},
-			"to": {
-				"row": 16,
-				"col": 15
-			}
-		}
-	}
+	}]
 }
