@@ -56,6 +56,7 @@ namespace '/api/v1' do
     if Puzzle.where(played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"]).count === 0 then
       Puzzle.create(puzzle)
     end
+    redirect to('https://pgaret.github.io/ChessPuzzleSim/')
   end
 
 end
