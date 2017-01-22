@@ -22,7 +22,6 @@ def loadFiles
   Dir.foreach('./boards') do |board|
     next if board == '.' or board == '..'
     puzzle = JSON.parse(File.read("./boards/"+board))
-    puts puzzle
     if Puzzle.where(played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"]).count === 0 then
       Puzzle.create(puzzle)
     end
@@ -48,6 +47,14 @@ namespace '/api/v1' do
 
   get '/puzzles/:id' do
     Puzzle.where({_id: params[:id]}).to_json
+  end
+
+  post '/puzzles/:id' do
+    puzzle = JSON.parse(params["data"])
+    if Puzzle.where(puzzle_no: puzzle["puzzle_no"], played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"]).count == 0 then
+      Puzzle.find(id: params[:id]).update(puzzle_no: puzzle["puzzle_no"], played_times: puzzle["played_times"], rating: puzzle["rating"], pieces: puzzle["pieces"], cols: puzzle["cols"], rows: puzzle["rows"], past_moves_board: puzzle["past_moves_board"])
+    end
+    redirect to('https://pgaret.github.io/ChessPuzzleSim/')
   end
 
   post '/puzzles' do
